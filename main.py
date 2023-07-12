@@ -15,7 +15,7 @@ from beers import get_beers
 env_variables = dotenv.dotenv_values(".env")
 TOKEN = env_variables["TELEGRAM_API_TOKEN"]
 
-with open("features\clara.json", 'r') as json_file:
+with open("clara.json", 'r') as json_file:
     clara_messages = json.load(json_file)
 
 logging.basicConfig(
