@@ -86,6 +86,7 @@ if __name__ == "__main__":
     application.add_handler(cat_handler)
     
     dog_handler = CommandHandler("firulais", get_a_dog)
+    application.add_handler(dog_handler)
 
     meaning_of_life_handler = CommandHandler("sentido_de_la_vida", meaning_of_life)
     application.add_handler(meaning_of_life_handler)
