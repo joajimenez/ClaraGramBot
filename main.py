@@ -10,6 +10,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 from decider import yes_or_no
 from cat import get_cat
+from dog import get_dog
 from beers import get_beers
 
 env_variables = dotenv.dotenv_values(".env")
@@ -48,6 +49,10 @@ async def get_a_cat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=cat_response)
 
 
+async def get_a_dog(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    dog_response = get_dog()
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=dog_response)
+
 async def get_a_beer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     beer = get_beers()
 
@@ -79,6 +84,8 @@ if __name__ == "__main__":
 
     cat_handler = CommandHandler("misu", get_a_cat)
     application.add_handler(cat_handler)
+    
+    dog_handler = CommandHandler("firulais", get_a_dog)
 
     meaning_of_life_handler = CommandHandler("sentido_de_la_vida", meaning_of_life)
     application.add_handler(meaning_of_life_handler)
